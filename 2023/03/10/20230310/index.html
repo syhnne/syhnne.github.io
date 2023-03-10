@@ -4,15 +4,86 @@
   <meta charset="utf-8">
   
   
-  <title>Hexo</title>
+  <title>免费 无需翻墙 搭建个人博客 保姆级教程 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="本文介绍使用hexo+github pages搭建个人博客的方法。主要参考了这两篇文档，内容跟他们基本上一样：Hexo+github搭建个人博客 | 武师叔 (wushishu.xyz) GitHub+Hexo 搭建个人网站详细教程 - 知乎 (zhihu.com) 但是我加入了一些个人理解，因为我是为了让从lofter润来的太太们去建自己的博客，我想做一篇能让任何零基础看懂的教程。我如实记录了任">
+<meta property="og:type" content="article">
+<meta property="og:title" content="免费 无需翻墙 搭建个人博客 保姆级教程">
+<meta property="og:url" content="http://example.com/2023/03/10/20230310/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="本文介绍使用hexo+github pages搭建个人博客的方法。主要参考了这两篇文档，内容跟他们基本上一样：Hexo+github搭建个人博客 | 武师叔 (wushishu.xyz) GitHub+Hexo 搭建个人网站详细教程 - 知乎 (zhihu.com) 但是我加入了一些个人理解，因为我是为了让从lofter润来的太太们去建自己的博客，我想做一篇能让任何零基础看懂的教程。我如实记录了任">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/ac9568cf-403b-4bf1-aa37-8ef7c62f6f6d.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/6771e49f-5a98-4636-b579-b3357068b846.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/97e4bde8-079b-453c-a68e-90c303a2908b.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/14fbd79b-babf-441c-81f8-fc3c8799cc52.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/107e7a8d-bde4-49d9-b096-8df414d974a1.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/dafbf8b8-b477-4efd-bf83-e9b3f3145b1b.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/87a06df0-bca1-44f8-9a9b-c68507c108d5.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/3d0e511f-72f2-4160-b6e5-efd7efa2083d.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/98bab3d8-7404-471d-8b8f-d128b095090f.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/9c85aa3f-6f0f-4213-b89b-f7ed536ceb81.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/c276a898-f86b-4d9e-8aa7-12490cfbd51d.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/b9a61f68-faff-4018-899d-6e53edd8e888.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/a7987ebe-2a18-4791-b2bf-c95bf80ecbbc.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/48ed86e1-33c9-43c4-b208-4943e43ab7a7.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/fddb2a04-726a-4b69-b5b7-66f1dc703325.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/5aaa6dcb-2697-4476-b5d8-29eb41b2a782.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/ec47d018-5d8a-43e5-acaf-bd743bf2c518.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/2848f3ce-0275-4534-8be3-ab6717df5e30.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/f300b48e-20c1-483c-8a62-446d43bde4e7.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/c801cb42-57b3-4210-b16e-199b4a651f29.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/7ae6b3eb-7fdc-4f17-b074-6ecdcde24d53.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/5ca770a7-0295-499a-be0d-e4cbe1974001.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/ce7795e0-5283-4a5f-9e5c-d7cdb5d8d187.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/5c772c03-e460-42ec-bdc6-72e8601f6095.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/64f71220-45c2-4e77-864d-20a64145aa71.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/51eb783b-a1c5-4174-b911-23368924d424.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/87480f84-754b-4413-952b-382f6b3a84f7.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/c0e24400-74ae-4522-a8b5-1f8ab4e0131b.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/beb2c4d2-16e7-42d5-ab2f-4a345581d153.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/aec6257f-0508-47e0-a3ea-2d997c61faf7.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/cc22a028-bdf3-440c-b264-df53ca32c1e9.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/988679d2-f314-498f-950b-120fe74bbaf3.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/3a3dacdb-2c65-429a-97f4-e36ef4dd91cd.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/56c7e8ea-878d-4bfb-890f-b1eadab2ee77.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/7f36f2e2-fd09-46a5-a986-0856f26d0a43.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/68e5e80b-dd2a-48d7-90a8-e383011d66a4.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/71ee11c2-9e24-4806-b5a1-c89d816b41b2.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/f478b154-b4b0-4b31-b36b-b28111475452.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/ed7d1d3d-b0a6-40e0-8770-56ac2d4f7043.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/697aa755-e29c-4ad4-a1a4-8d1b3f30c43f.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/82ee618e-7de0-4e2c-b94d-b2add6ffea41.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/1561eda2-00b5-4181-ad47-d43d5f9266f7.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/892a4dc8-3b7d-4f84-8d56-559f24d4242e.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/2286d142-4071-4540-8eee-0c4c9f1854ca.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/71d21316-db58-45d5-99df-bbb15459c7ce.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/7d71917c-bf48-4b42-85fd-3ba90045e4d8.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/a4e6503a-a5e7-4ead-831e-5dbcee2db258.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/b4599496-9c7d-424c-99aa-1efecfadcd05.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/b12ff24c-2e7a-45ca-a779-935baf555aff.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/69577ed1-d3ae-4cd7-acf5-9942e1899022.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/9b26add1-7040-425e-bfed-b3953f006e00.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/b5c83597-4797-4227-9871-7a963f17ca9a.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/fbc043aa-5082-4178-8c0a-cf52f67a93aa.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/7c22f10f-9184-4192-9bf0-078b13754e77.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/f0163e64-9030-45c4-9593-d9298216a40a.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/ad7e4feb-e313-40f8-92e5-f104042d267c.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/6e42cd5a-b32e-40ff-9ad4-8ecc03b4baa4.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/aa041fdb-2ffa-44f7-9cf2-af595b7971a4.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/bab1c9df-ed7c-4243-8220-99452608ef95.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/594bdbff-06d5-4d9e-a3e4-8c5d0e90f6e4.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/d9824c62-a278-4e46-8b43-8421140afd39.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/a237fc3e-78f2-4f25-aecb-76d26d049235.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/8b758ca9-0add-4449-b85a-58a97181350b.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/e35e6187-04fe-4991-8e3f-645070e0bd66.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/79ed6286-2f50-4e22-a1cf-4d87f66d713d.png">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/3031e240-2c6e-4f2c-bc15-9424a057e4a6.png">
+<meta property="article:published_time" content="2023-03-10T13:41:51.194Z">
+<meta property="article:modified_time" content="2023-03-10T15:13:57.805Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/QoJGq77oj4DAqAKe/img/ac9568cf-403b-4bf1-aa37-8ef7c62f6f6d.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -69,9 +140,7 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-20230310" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-20230310" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2023/03/10/20230310/" class="article-date">
   <time class="dt-published" datetime="2023-03-10T13:41:51.194Z" itemprop="datePublished">2023-03-10</time>
@@ -88,8 +157,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/03/10/20230310/">免费 无需翻墙 搭建个人博客 保姆级教程</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      免费 无需翻墙 搭建个人博客 保姆级教程
     </h1>
   
 
@@ -312,11 +381,9 @@ hexo d
     </footer>
   </div>
   
-</article>
-
-
-
+    
   
+</article>
 
 
 </section>
