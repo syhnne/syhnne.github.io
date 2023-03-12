@@ -71,258 +71,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-20230310 - 副本" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/03/12/20230310%20-%20%E5%89%AF%E6%9C%AC/" class="article-date">
-  <time class="dt-published" datetime="2023-03-12T04:35:38.300Z" itemprop="datePublished">2023-03-12</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E4%BB%A3%E7%A0%81%E2%80%A6/">代码…</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/03/12/20230310%20-%20%E5%89%AF%E6%9C%AC/">免费 无需翻墙 搭建个人博客 保姆级教程</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>本文介绍使用hexo+github pages搭建个人博客的方法。主要参考了这两篇文档，内容跟他们基本上一样：<a target="_blank" rel="noopener" href="https://wushishu.xyz/post/be8880ea.html">Hexo+github搭建个人博客 | 武师叔 (wushishu.xyz)</a> <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/26625249/">GitHub+Hexo 搭建个人网站详细教程 - 知乎 (zhihu.com)</a></p>
-<p>但是我加入了一些个人理解，因为我是为了让从lofter润来的太太们去建自己的博客，我想做一篇能让任何零基础看懂的教程。我如实记录了任何我搭建过程中遇到的问题，对于大佬来说，这些问题可能是蠢得不行，但是对于我这种新手来说就很费劲。不出意外的话，这些东西需要一两个小时来完成，如果出了意外，几个小时可能也打不住（）但是总的来说有一个操作原则：如果见到了没见过的报错，就复制长得最像错误内容的那一部分，去百度搜索。先不要急着解决，先多打开几个文档，看看他们说的一不一样，如果差异不大，那么就照着其中的一个去做就行；如果各人有各人的说法，那得稍微掂量一下了，具体情况具体分析。不过我会把我看到的所有报错和解决方法都放这里。</p>
-<h1 id="0-准备工作"><a href="#0-准备工作" class="headerlink" title="0. 准备工作"></a>0. 准备工作</h1><h2 id="0-1-下载watt-toolkit"><a href="#0-1-下载watt-toolkit" class="headerlink" title="0.1 下载watt toolkit"></a>0.1 下载watt toolkit</h2><p>首先去microsoft store搜索watt toolkit，或者<a target="_blank" rel="noopener" href="https://steampp.net/">点击这里进入他的官网</a>，下载并安装。</p>
-<p>这是一个让你能连接github的工具，如果你不装它，你没法正常打开github官网。而且他是开源的，不用担心病毒之类，他还能加速一些别的东西，有兴趣可以去b站搜索这个软件了解一一下。</p>
-<p>下载后打开，界面如下，勾选github的所有服务，点击【一键加速】。之后你可以直接右上角叉掉这个软件了，他会在后台继续运行。</p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--1.png"></p>
-<p>之后你可以正常地进入<a target="_blank" rel="noopener" href="https://github.com/">GitHub</a>了。注意，这个教程需要你全程把这个软件加速挂在后台，以后用git上传东西时也要先打开他，不然你连不上github。</p>
-<h2 id="0-2-注册github账号、新建仓库"><a href="#0-2-注册github账号、新建仓库" class="headerlink" title="0.2 注册github账号、新建仓库"></a>0.2 注册github账号、新建仓库</h2><p>如果你没有github账号，你需要注册一个。进入官网后，点击右上角sign up，按照他的提示输入邮箱、账号密码、用户名（注意，这里你用户名最好不要乱起，因为你博客的域名会是【用户名.github.io】如果你乱写，域名就会很奇怪。当然如果你打算另外购买域名那就当我没说）</p>
-<p>账号注册好之后，需要新建一个仓库，用来存放你的博客代码。</p>
-<p>点击左边的【create repository】，之后看到如下界面。</p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--2.png"></p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--3.png"></p>
-<p>输入仓库名称时，必须是【用户名.github.io】的格式，比如我图片上这里就该输入【emily2513.github.io】<del>当然这个方括号不用加，我这里加他是为了方便阅读（）</del>这是硬性要求，如果你的仓库名字不是这个格式，或者和你的用户名不一样，会出现上传了博客，但输入域名进入网站看到的却是404 not found的问题。</p>
-<hr>
-<h1 id="1-安装配置node-js"><a href="#1-安装配置node-js" class="headerlink" title="1. 安装配置node.js"></a>1. 安装配置node.js</h1><p>参考：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/77594251">Node.js安装与配置详解 - 知乎 (zhihu.com)</a></p>
-<p>node.js是一种运行环境，用来运行后文说到的hexo。</p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--4.png"></p>
-<p>（不要在意我这个黑色的界面，正常人的界面都是白色的，我界面黑是因为我浏览器装了插件）</p>
-<p>进入他的<a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn/">官网</a>，点击左侧的LTS，这表示下载长期维护版。然后你会得到一个msi文件，运行他来安装nodejs。</p>
-<p>下载完成后，按照如下图片的操作进行设置：（原教程里有这些东西，但是nodejs似乎更新了，跟他那教程写的不太一样。）</p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--5.png"></p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--6.png"></p>
-<p>↓ 选择一个安装路径，这个一般不需要更改。</p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--7.png"></p>
-<p>↓ 这五项默认显示的都是一个硬盘的图标，不要更改它，直接点下一步。</p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--8.png"></p>
-<p>↓ 这一步的意思是，是否自动安装所需要的包。如果你有其他的需要，可以勾选它，但是这里我们先不选。</p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--9.png"></p>
-<p>之后点击确认，开始安装。</p>
-<p>如果你的安装程序进度一直没反应，看一看你的任务栏里有没有多出来一个‘程序需要管理员权限’的那种窗口，点击确定之后它很快就装好了。</p>
-<hr>
-<h1 id="2-安装git"><a href="#2-安装git" class="headerlink" title="2. 安装git"></a>2. 安装git</h1><p>参考：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/xueweisuoyong/p/11914045.html">https://www.cnblogs.com/xueweisuoyong/p/11914045.html</a></p>
-<p>git是一个分布式版本控制系统，他可以跟踪不同电脑上对于文本文件进行的各种修改。<a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/896043488029600">这里是一篇详细介绍git的教程</a></p>
-<p>首先<a target="_blank" rel="noopener" href="https://git-scm.com/downloads">点击这里进入git官网</a>，点击右边的download for windows，在上面的两行蓝色字中选择符合你电脑的版本进行下载。</p>
-<p><a target="_blank" rel="noopener" href="https://www.xitongcheng.com/jiaocheng/win10_article_75416.html">如果你不知道自己电脑是32位还是64位，点这里</a></p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--10.png"></p>
-<p>下载完成后，运行他的安装程序，按照以下的步骤来做。</p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--11.png"></p>
-<p>↓ 这一步是更改安装路径，一般不需要改。</p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--12.png"></p>
-<p>↓ 这一步勾选你需要的功能。直接用他默认勾选的内容即可，点击下一步。</p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--13.png"></p>
-<p>↓ 这一步是创建开始菜单文件夹，可以不修改他，点击下一步。</p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--14.png"></p>
-<p>↓ 这一步是修改git的默认文本编辑器。本教程中用不到git的文本编辑器，如果你懒得操作，你可以直接使用他的默认选项并点击下一步。如果你不想让他再给你安装一些你用不到的东西，你可以点开选择那一栏往下滚动，找到【select other editor as git’s default editor】然后用你自己的编辑器。</p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--15.png"></p>
-<p>↓ 这里我电脑上有vs code，所以用了自己的。</p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--16.png"></p>
-<p>↓ 剩下的这些东西照着他默认的勾选就行了。</p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--17.png"></p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--18.png"></p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--19.png"></p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--20.png"></p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--21.png"></p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--22.png"></p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--23.png"></p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--24.png"></p>
-<p>最后是一些实验性的选项，咱们用不到，不勾选。</p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--25.png"></p>
-<p>最后点击开始安装，安装好之后取消勾选下面的view release notes，然后点击结束。</p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--26.png"></p>
-<hr>
-<h1 id="3-生成ssh-keys"><a href="#3-生成ssh-keys" class="headerlink" title="3. 生成ssh keys"></a>3. 生成ssh keys</h1><h2 id="3-1-生成ssh"><a href="#3-1-生成ssh" class="headerlink" title="3.1 生成ssh"></a>3.1 生成ssh</h2><p>首先打开刚刚下载的git bash，他会弹出一个窗口，一开始上面的文字有【login】几个字，表示正在登录，一段时间后会变成这样。</p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--27.png"></p>
-<p>注意，git bash里面不能直接ctrl+c，要想复制粘贴需要右键，或者使用他给的快捷键：ctrl+ins复制，shift+ins粘贴。</p>
-<p>然后输入【ssh-keygen -t rsa -C “你的邮箱地址”】</p>
-<p>他说要输入邮箱，但是不一定非得是邮箱，输点别的东西也可以。</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u011118321/article/details/78516303">ssh-keygen的-C后面的邮箱有什么用？_ssh公钥后缀的邮箱作用_BaldWinf的博客-CSDN博客</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_33775582/article/details/93798019">ssh-keygen -t rsa -b 4096 -C “邮箱”_weixin_33775582的博客-CSDN博客</a></p>
-<p>之后按四次回车。如果他问你overwrite(y&#x2F;n)，意思是问你这个文件已经存在了，是否覆盖他。输入y，允许他覆盖。</p>
-<p>图中红线是你按回车的地方，第一行是你输入的命令。</p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--28.png"></p>
-<p>这一步之后，你需要再输入【cat ~&#x2F;.ssh&#x2F;id_rsa.pub】这个命令，让他生成密钥。</p>
-<p>随后他会给你输入一大串乱码一样的东西，选中它之后用右键复制。</p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--29.png"></p>
-<h2 id="3-2-在github中添加ssh-keys"><a href="#3-2-在github中添加ssh-keys" class="headerlink" title="3.2 在github中添加ssh keys"></a>3.2 在github中添加ssh keys</h2><p>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/flyaway0624/article/details/123803104">git@github.com: Permission denied (publickey)._努力的小蜗牛Zzz的博客-CSDN博客</a></p>
-<p>这个时候打开github网页，右上角点击自己的头像，找到【settings】</p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--30.png"></p>
-<p>点进去，左边找到【ssh and gpg keys】，点击【new ssh key】新建。<img src="https://z4a.net/images/2023/03/12/20230312--31.png"></p>
-<p>输入你刚才复制的那个密钥，放在这里：</p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--32.png"></p>
-<p>如果你不完成在github新建密钥的步骤，你会看到【<a href="mailto:&#x67;&#x69;&#x74;&#64;&#103;&#x69;&#116;&#104;&#x75;&#98;&#x2e;&#x63;&#111;&#109;">&#x67;&#x69;&#x74;&#64;&#103;&#x69;&#116;&#104;&#x75;&#98;&#x2e;&#x63;&#111;&#109;</a>: Permission denied (publickey)】的报错。</p>
-<h2 id="3-3-设置用户名邮箱配置信息"><a href="#3-3-设置用户名邮箱配置信息" class="headerlink" title="3.3 设置用户名邮箱配置信息"></a>3.3 设置用户名邮箱配置信息</h2><p>分别输入以下两行：</p>
-<pre><code>git config --global user.name &quot;你的GitHub用户名&quot;
-git config --global user.email &quot;你的GitHub注册邮箱&quot;
-</code></pre>
-<p>这个步骤是为了和你的github账号建立联系。输入之后他不会有什么反应，会直接弹出下一行字，只要你没打错，就是设置完成了。</p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--33.png"></p>
-<p>如果你不输入这个，之后第五步的时候就没法推送博客。</p>
-<p>完成以上三步，最后输入【ssh -T <a href="mailto:&#103;&#105;&#x74;&#64;&#x67;&#105;&#116;&#104;&#x75;&#x62;&#46;&#x63;&#x6f;&#x6d;">&#103;&#105;&#x74;&#64;&#x67;&#105;&#116;&#104;&#x75;&#x62;&#46;&#x63;&#x6f;&#x6d;</a>】来验证操作是否成功。</p>
-<p>如果他问你yes no，要输入一个yes，不然会报错连接失败。</p>
-<p>最后看到这行字，说明成功了。（不要在意我那个路径变化，我在两台电脑上操作的（）</p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--34.png"></p>
-<p>如果你输入的是【ssh <a href="mailto:&#103;&#x69;&#116;&#x40;&#x67;&#x69;&#x74;&#x68;&#x75;&#x62;&#x2e;&#99;&#x6f;&#x6d;">&#103;&#x69;&#116;&#x40;&#x67;&#x69;&#x74;&#x68;&#x75;&#x62;&#x2e;&#99;&#x6f;&#x6d;</a>】没有中间那个-T，在这之后还会看到连接关闭，所以一定要输入有-T的那个命令。</p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--35.png"></p>
-<h1 id="4-安装hexo"><a href="#4-安装hexo" class="headerlink" title="4. 安装hexo"></a>4. 安装hexo</h1><p>首先关掉刚才的git bash窗口，在文件管理器里找到你需要新建博客文件夹的地方（我是准备直接放d盘根目录），右键git bash here。这个步骤是保证你在使用命令行时，能对你在文件管理器里选择的这个地方进行操作。</p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--36.png"></p>
-<p>后面那个黄色的字显示路径，它表示你成功进入了d盘。</p>
-<p>安装hexo之前，首先检测一下你的node和npm正不正常，分别输入node -v然后回车，看到node版本；输入npm -v回车，看到npm版本，说明没问题。</p>
-<p>然后输入【npm install -g hexo-cli】 </p>
-<p>这个命令耗时比较长，过一会会看到如下内容，说明成功。</p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--37.png"></p>
-<p>这个时候可以正常地开始初始化了。</p>
-<p>经过了比较长的时间，虽然中间出现了一些info和warn之类。那个是类似于程序日志的东西，只是输出一些程序执行时发生的事件。对于我们这种啥也不懂的人来说，不用管他，因为还没有出现底下那个彩色的字，说明他的安装工作还没做完，接着等。</p>
-<p>最后出现了start blogging一行字，看来是成功了。点开你创建博客的文件夹，出现一些文件，说明确实成功了，进行下一步。</p>
-<p>（我在第一台电脑上操作的结果）</p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--38.png"></p>
-<p>（我在另一台电脑操作的结果）<del>（他太慢了，我急了，开始乱按）</del></p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--39.png"></p>
-<h2 id="4-1-常见报错"><a href="#4-1-常见报错" class="headerlink" title="4.1 常见报错"></a>4.1 常见报错</h2><h3 id="4-1-1-【hexo-command-not-found】"><a href="#4-1-1-【hexo-command-not-found】" class="headerlink" title="4.1.1 【hexo: command not found】"></a>4.1.1 【hexo: command not found】</h3><p>如果你输入hexo命令却看到这个，说明你的hexo还没安装。如果你安装了，参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_36759224/article/details/100411949">这篇文档</a>解决。</p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--40.png"></p>
-<h3 id="4-1-2-【FATAL-目录-not-empty-please-run-‘hexo-init’-on-an-empty-folder-and-then-copy-your-files-into-it】"><a href="#4-1-2-【FATAL-目录-not-empty-please-run-‘hexo-init’-on-an-empty-folder-and-then-copy-your-files-into-it】" class="headerlink" title="4.1.2 【FATAL (目录)not empty, please run ‘hexo init’ on an empty folder and then copy your files into it】"></a>4.1.2 【FATAL (目录)not empty, please run ‘hexo init’ on an empty folder and then copy your files into it】</h3><p>hexo需要在一个空的文件夹里面进行初始化（init），这里由于你既没有给hexo新建文件夹，又没有让他自己新建一个，直接输入hexo init会看到报错。</p>
-<p>（这里的FATAL就是报错的意思，直译为“致命的，灾难性的”。这里可能出现各种不同的报错，想要知道原因，可以复制【fatal:】后面的内容粘贴到百度搜索。）</p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--41.png"></p>
-<p>正确的做法是输入hexo init 【你要新建的文件夹名】。</p>
-<h3 id="4-1-3-【fatal-unable-to-access-‘https-github-com-hexojs-hexo-starter-git-‘-SSL-certificate-problem-unable-to-get-local-issuer-certificate】"><a href="#4-1-3-【fatal-unable-to-access-‘https-github-com-hexojs-hexo-starter-git-‘-SSL-certificate-problem-unable-to-get-local-issuer-certificate】" class="headerlink" title="4.1.3 【fatal: unable to access ‘https://github.com/hexojs/hexo-starter.git/‘: SSL certificate problem: unable to get local issuer certificate】"></a>4.1.3 【fatal: unable to access ‘<a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-starter.git/">https://github.com/hexojs/hexo-starter.git/</a>‘: SSL certificate problem: unable to get local issuer certificate】</h3><p>网络问题，多试几次就好了。实在不行你可以把后台的steam++关一下，再重新打开。</p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--42.png"></p>
-<hr>
-<h1 id="5-新建博客、预览、推送"><a href="#5-新建博客、预览、推送" class="headerlink" title="5. 新建博客、预览、推送"></a>5. 新建博客、预览、推送</h1><h2 id="5-1-本地预览"><a href="#5-1-本地预览" class="headerlink" title="5.1 本地预览"></a>5.1 本地预览</h2><p>参考：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/2f4aca924fdb">hexo命令不能执行，返回报usage - 简书 (jianshu.com)</a> <a target="_blank" rel="noopener" href="https://blog.csdn.net/eagleuniversityeye/article/details/85267550">Hexo报错Usage: hexo <command>处理及图片显示问题_iceburg-blogs的博客-CSDN博客</a></p>
-<p>开始之前，要先检查你命令行所在的目录，也就是顶上那行彩色字中黄色的那部分。刚才你用hexo init命令新建了一个文件夹，现在你需要进入这个文件夹，然后才能继续执行命令。否则你会看到如下的【Usage: hexo <command>】报错。<img src="https://z4a.net/images/2023/03/12/20230312--43.png"></p>
-<p>这个时候输入【cd [你新建的文件夹名称]】就能进入文件夹，然后继续操作了。</p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--44.png"></p>
-<p>当然，有的时候即便这么修了，还是会报usage错误。</p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--45.png"></p>
-<p>这个时候输入【npm install hexo-server –save】来更新一下hexo的服务。</p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--46.png"></p>
-<p>然后，输入【hexo new helloworld】。这是新建一篇文章的命令，在第六章里面会讲。先别急着开写，我们还有大量bug要修（）这里先随便新建一个然后让它成功上传。</p>
-<p>接下来输入【hexo g】或者【hexo generate】来根据md文件生成文档。</p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--47.png"></p>
-<p>最后输入【hexo s】或者【hexo server】来启动服务预览。第一次运行会触发windows defender，允许通过。</p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--48.png"></p>
-<p>他会给你一个地址（一般是localhost:4000）把它复制到浏览器上，就能看到文档了。</p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--49.png"></p>
-<p>如果以上步骤你都正确操作却没有看到文档，可能是你的4000端口被占用了，可以参考<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/d3963da3946f">这篇文档</a>进行解决。</p>
-<p>预览完成后，按ctrl+c停止预览。这里注意不要用ctrl+c去复制那个4000端口的地址……这事我干了好几次了（扶额</p>
-<h2 id="5-2-推送"><a href="#5-2-推送" class="headerlink" title="5.2 推送"></a>5.2 推送</h2><p>当然，以上预览是在你本地进行的，只有你自己能看见。要想推送到网站，需要修改一些配置。</p>
-<h3 id="5-2-1-修改-config-yml配置文件"><a href="#5-2-1-修改-config-yml配置文件" class="headerlink" title="5.2.1 修改_config.yml配置文件"></a>5.2.1 修改_config.yml配置文件</h3><p>首先打开github，在左侧找到你之前新建的仓库。</p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--50.png"></p>
-<p>点开后，在屏幕中间找到最显眼的绿色【code】按钮，点开后看到如下画面。找到ssh一栏，复制底下的内容，准备一会粘贴使用。</p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--51.png"></p>
-<p>之后打开blog根目录，会找到一个【_config.yml】文件。注意，一定是你用hexo init命令新建的那个根目录底下，而不是其他目录底下。</p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--52.png"></p>
-<p>打开这个文件，翻到最后，修改以下内容。</p>
-<pre><code>deploy: 
-  type: git
-  repo: 【这里粘贴刚才你在github复制的内容】
-  branch: master
-</code></pre>
-<p>举个例子，修改前：</p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--53.png"></p>
-<p>修改后：（注意添加空格！！）</p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--54.png"></p>
-<h3 id="5-2-2-安装推送插件"><a href="#5-2-2-安装推送插件" class="headerlink" title="5.2.2 安装推送插件"></a>5.2.2 安装推送插件</h3><p>输入【npm install hexo-deployer-git –save】，来安装推送用的插件。他可能会报vulnerabilities，意思是程序有漏洞。</p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--55.png"></p>
-<p>照着指示输入npm audit fix –force，修好了，报0 vulnerabilities，说明搞定。</p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--56.png"></p>
-<p>不过我另一台电脑就没有报vulnerabilities，这可能看运气了（）</p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--57.png"></p>
-<h3 id="5-2-3-推送"><a href="#5-2-3-推送" class="headerlink" title="5.2.3 推送"></a>5.2.3 推送</h3><p>接下来输入这三个语句：</p>
-<pre><code>hexo clean 
-hexo g 
-hexo d
-</code></pre>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--58.png"></p>
-<p>clean是清除缓存，g是generate，d是deploy也就是部署的意思，准备上传了。这个时候可能会报各种错，以下是我看到的几个。</p>
-<h4 id="5-2-3-1-【Author-identity-unknown】"><a href="#5-2-3-1-【Author-identity-unknown】" class="headerlink" title="5.2.3.1 【Author identity unknown】"></a>5.2.3.1 【Author identity unknown】</h4><p>这个报错是由于先前你没有执行git config那两个命令。翻到3.3那步，设置用户名和邮箱就能解决。</p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--59.png"></p>
-<h4 id="5-2-3-2-【SSL-certificate-problem-unable-to-get-local-issuer-certificate】"><a href="#5-2-3-2-【SSL-certificate-problem-unable-to-get-local-issuer-certificate】" class="headerlink" title="5.2.3.2 【SSL certificate problem: unable to get local issuer certificate】"></a>5.2.3.2 【SSL certificate problem: unable to get local issuer certificate】</h4><p><img src="https://z4a.net/images/2023/03/12/20230312--60.png"></p>
-<p>参考这篇文章解决：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_27674439/article/details/119327919">SSL certificate problem: unable to get local issuer certificate 错误解决_一晌贪欢i的博客-CSDN博客</a></p>
-<h4 id="5-2-3-3-【Usage-hexo-】"><a href="#5-2-3-3-【Usage-hexo-】" class="headerlink" title="5.2.3.3 【Usage: hexo 】"></a>5.2.3.3 【Usage: hexo <command>】</h4><p>5.1那里写了，</p>
-<ol>
-<li><p>命令行路径和hexo路径不一样</p>
-</li>
-<li><p>hexo服务需要更新</p>
-</li>
-</ol>
-<h4 id="5-2-3-4-上传成功了，但是打开用户名-github-io看到的是404"><a href="#5-2-3-4-上传成功了，但是打开用户名-github-io看到的是404" class="headerlink" title="5.2.3.4 上传成功了，但是打开用户名.github.io看到的是404"></a>5.2.3.4 上传成功了，但是打开用户名.github.io看到的是404</h4><p>你在github上的仓库名字前面部分必须要和用户名一样，0.2那里有写。</p>
-<p>进行一个错误示范：</p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--61.png"></p>
-<p>这里面我的用户名叫syhnne，但是仓库名字却是emily2513，应该修改为【syhnne.github.io】</p>
-<p>最后看到这个，说明你上传成功</p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--62.png"></p>
-<p>效果如图所示</p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--63.png"></p>
-<p>下一次打开git进行编辑的时候，不要直接打开git bash，要先在资源管理器点进你建立的blog文件夹，然后右键git bash here。不然还得手动cd进文件夹。</p>
-<hr>
-<h1 id="6-开写！"><a href="#6-开写！" class="headerlink" title="6. 开写！"></a>6. 开写！</h1><h2 id="6-1-发布文章的流程"><a href="#6-1-发布文章的流程" class="headerlink" title="6.1 发布文章的流程"></a>6.1 发布文章的流程</h2><p>博客要发布的所有文章都在【blog\source\_posts】这个路径下面。</p>
-<p>在git中输入 hexo new post helloworld，就能新建一篇名叫helloworld的文章。</p>
-<p>hexo new就是创建新文章的命令。post指的是你要创建的文章类型，如果你把这个词换成page，会创建一个新的【页面】，它不像post一样会被直接划到主页显示的文章范围中，而是单独列出来，以后你可以添加一些按钮来引导到这个界面。helloworld就是你要创建的文章的标题，换成任意一个词也可以，中文也行。</p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--64.png"></p>
-<p>之后打开_posts文件夹，就能看到新创建的文章，后缀是.md，他是markdown的缩写。对这个文件进行编辑，就能修改博客内容。</p>
-<p>修改完成之后，首先打开steam++进行加速，然后进行三件套大保健：</p>
-<pre><code>hexo cl &amp;&amp; hexo g  &amp;&amp; hexo s
-</code></pre>
-<p>就可以完成上传。</p>
-<h2 id="6-2-怎么写"><a href="#6-2-怎么写" class="headerlink" title="6.2 怎么写"></a>6.2 怎么写</h2><p>别担心，markdown语法很简单，网上随便搜搜教程肯定是有的。hexo也有他自己的文档，会对原本的markdown写作进行一些补充：<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/writing.html">写作 | Hexo</a></p>
-<p>这部分我也没研究明白，不过我有一些更简单的方法：</p>
-<p>第一，在浏览器打开你的lofter主页，点进你要保存的文章，直接按ctrl+s，就会下载一个html文件。当然这么做的前提是你在lofter发布的文章不是很多，虽然可能有爬虫一类的方法可以批量下载，但是那个我也不会，我只能手动下载（）</p>
-<p>之后使用这个<a target="_blank" rel="noopener" href="https://cloudconvert.com/html-to-md">html转md工具</a>，把下载的html转换一下，然后用hexo new命令新建文件，把你刚才转换出来的md文件的内容全部复制，粘贴到新建的文档后面。</p>
-<p>第二，我这篇教程是在钉钉文档写的，写完后右上角三个点里可以直接下载为md文件。</p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--65.png"></p>
-<p>甚至不用操心图片问题了。点开这个md文件，你会发现所有的图片都给你换成了链接，复制一下链接在浏览器打开，就是你通过剪贴板加入的图片。</p>
-<p><img src="https://z4a.net/images/2023/03/12/20230312--66.png"></p>
-<p>之后把这个md文件的内容复制粘贴到你新建的md文件后面（不要删掉他原有的东西，那些是hexo有关文章的变量，具体参考：<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/front-matter">Front-matter | Hexo</a>）再保存，就可以发布了。</p>
-<p>修正一下，本来准备白嫖钉钉文档的图床的，但是他好像加了某种检测机制，不在钉钉上访问图片就会打不开。所以图床只能另外找了，我暂时用的是<a target="_blank" rel="noopener" href="https://z4a.net/">z4a这个免费的</a>，其他免费图床在网上搜搜就能搜出来好多。</p>
-<p>p.s.图床就是专门用来存储图片的地方。一般来说不会把图片和文字放在同一个地方保存，因为本地上传图片会各种意义上的拖慢速度，文档里出现的图片都单独存在另外的服务器上，用一个链接来代替。</p>
-<p>图片上传到图床之后，他会给你一个图片链接，在markdown文件中找到形如【![图片名称，这里写了之后会给图片加入小标题](图片链接，必须填写)】的语句，把中括号的内容改成你想要的图片小标题（不想要小标题就直接空着），把小括号的内容改成图床给你的图片链接，就能正常显示图片了。</p>
-<p>不过这样就有一个问题，文档里会有很多图片链接，全都手动替换成自己的链接实在是太累。于是我上网找了个python程序来帮我干这种活，但是目前我写的很着急，程序做的不是很完善，以后再改改。</p>
-<p>我是手动下载了所有图片，存到一个文件夹里，ctrl+a全选，然后全部重命名。会把所有图片改成【你自己写的图片名 (1).png】这种格式。</p>
-<p>然后把它们全都放一个文件夹里，用python来批量替换md文件里的图片链接。下面这段代码是我上网抄了一部分然后自己改的，我的编程能力只有高中合格考水平，其他的不上网抄实在是不会写（</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/03/12/20230310%20-%20%E5%89%AF%E6%9C%AC/" data-id="clf4wqrxh0000t4vefkupebqp" data-title="免费 无需翻墙 搭建个人博客 保姆级教程" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
     <article id="post-20230310" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2023/03/10/20230310/" class="article-date">
@@ -430,7 +178,7 @@ hexo d
 <p>点进去，左边找到【ssh and gpg keys】，点击【new ssh key】新建。<img src="https://z4a.net/images/2023/03/12/20230312--31.png"></p>
 <p>输入你刚才复制的那个密钥，放在这里：</p>
 <p><img src="https://z4a.net/images/2023/03/12/20230312--32.png"></p>
-<p>如果你不完成在github新建密钥的步骤，你会看到【<a href="mailto:&#x67;&#105;&#116;&#64;&#x67;&#x69;&#x74;&#104;&#117;&#98;&#46;&#x63;&#111;&#109;">&#x67;&#105;&#116;&#64;&#x67;&#x69;&#x74;&#104;&#117;&#98;&#46;&#x63;&#111;&#109;</a>: Permission denied (publickey)】的报错。</p>
+<p>如果你不完成在github新建密钥的步骤，你会看到【<a href="mailto:&#103;&#105;&#116;&#64;&#x67;&#105;&#x74;&#x68;&#x75;&#98;&#x2e;&#x63;&#x6f;&#x6d;">&#103;&#105;&#116;&#64;&#x67;&#105;&#x74;&#x68;&#x75;&#98;&#x2e;&#x63;&#x6f;&#x6d;</a>: Permission denied (publickey)】的报错。</p>
 <h2 id="3-3-设置用户名邮箱配置信息"><a href="#3-3-设置用户名邮箱配置信息" class="headerlink" title="3.3 设置用户名邮箱配置信息"></a>3.3 设置用户名邮箱配置信息</h2><p>分别输入以下两行：</p>
 <pre><code>git config --global user.name &quot;你的GitHub用户名&quot;
 git config --global user.email &quot;你的GitHub注册邮箱&quot;
@@ -438,11 +186,11 @@ git config --global user.email &quot;你的GitHub注册邮箱&quot;
 <p>这个步骤是为了和你的github账号建立联系。输入之后他不会有什么反应，会直接弹出下一行字，只要你没打错，就是设置完成了。</p>
 <p><img src="https://z4a.net/images/2023/03/12/20230312--33.png"></p>
 <p>如果你不输入这个，之后第五步的时候就没法推送博客。</p>
-<p>完成以上三步，最后输入【ssh -T <a href="mailto:&#x67;&#105;&#x74;&#64;&#103;&#x69;&#x74;&#x68;&#x75;&#98;&#46;&#99;&#111;&#x6d;">&#x67;&#105;&#x74;&#64;&#103;&#x69;&#x74;&#x68;&#x75;&#98;&#46;&#99;&#111;&#x6d;</a>】来验证操作是否成功。</p>
+<p>完成以上三步，最后输入【ssh -T <a href="mailto:&#103;&#x69;&#x74;&#64;&#x67;&#x69;&#x74;&#104;&#117;&#x62;&#46;&#x63;&#x6f;&#109;">&#103;&#x69;&#x74;&#64;&#x67;&#x69;&#x74;&#104;&#117;&#x62;&#46;&#x63;&#x6f;&#109;</a>】来验证操作是否成功。</p>
 <p>如果他问你yes no，要输入一个yes，不然会报错连接失败。</p>
 <p>最后看到这行字，说明成功了。（不要在意我那个路径变化，我在两台电脑上操作的（）</p>
 <p><img src="https://z4a.net/images/2023/03/12/20230312--34.png"></p>
-<p>如果你输入的是【ssh <a href="mailto:&#103;&#105;&#116;&#x40;&#103;&#105;&#x74;&#x68;&#117;&#x62;&#46;&#99;&#111;&#x6d;">&#103;&#105;&#116;&#x40;&#103;&#105;&#x74;&#x68;&#117;&#x62;&#46;&#99;&#111;&#x6d;</a>】没有中间那个-T，在这之后还会看到连接关闭，所以一定要输入有-T的那个命令。</p>
+<p>如果你输入的是【ssh <a href="mailto:&#x67;&#105;&#x74;&#64;&#103;&#105;&#x74;&#104;&#117;&#98;&#46;&#99;&#111;&#x6d;">&#x67;&#105;&#x74;&#64;&#103;&#105;&#x74;&#104;&#117;&#98;&#46;&#99;&#111;&#x6d;</a>】没有中间那个-T，在这之后还会看到连接关闭，所以一定要输入有-T的那个命令。</p>
 <p><img src="https://z4a.net/images/2023/03/12/20230312--35.png"></p>
 <h1 id="4-安装hexo"><a href="#4-安装hexo" class="headerlink" title="4. 安装hexo"></a>4. 安装hexo</h1><p>首先关掉刚才的git bash窗口，在文件管理器里找到你需要新建博客文件夹的地方（我是准备直接放d盘根目录），右键git bash here。这个步骤是保证你在使用命令行时，能对你在文件管理器里选择的这个地方进行操作。</p>
 <p><img src="https://z4a.net/images/2023/03/12/20230312--36.png"></p>
@@ -615,7 +363,7 @@ replace_url()
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/03/10/20230310/" data-id="clf4wqrxy0003t4ve5i7bhwnt" data-title="免费 无需翻墙 搭建个人博客 保姆级教程" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2023/03/10/20230310/" data-id="clf4wx1dp0000pwve9a6jeghp" data-title="免费 无需翻墙 搭建个人博客 保姆级教程" class="article-share-link">Share</a>
       
       
       
@@ -663,10 +411,6 @@ replace_url()
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
-        
-          <li>
-            <a href="/2023/03/12/20230310%20-%20%E5%89%AF%E6%9C%AC/">免费 无需翻墙 搭建个人博客 保姆级教程</a>
-          </li>
         
           <li>
             <a href="/2023/03/10/20230310/">免费 无需翻墙 搭建个人博客 保姆级教程</a>
